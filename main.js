@@ -144,7 +144,7 @@ platform.castShadow = true;
 scene.add(platform);
 
 // Arena floor with texture-like pattern
-const floorGeo = new THREE.BoxGeometry(12, 0.05, 8);
+const floorGeo = new THREE.PlaneGeometry(11,7);
 const floorMat = new THREE.MeshStandardMaterial({ 
   color: 0x2a2a4e, 
   roughness: 0.2, 
@@ -152,6 +152,7 @@ const floorMat = new THREE.MeshStandardMaterial({
   emissive: new THREE.Color(0x0a0a20)
 });
 const floor = new THREE.Mesh(floorGeo, floorMat);
+floor.rotation.x = -Math.PI /2;
 floor.position.y = -0.08;
 floor.receiveShadow = true;
 scene.add(floor);
