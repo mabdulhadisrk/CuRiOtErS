@@ -1046,6 +1046,9 @@ function animate() {
 
     //arm away
     p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
+    p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.003) * 0.05;
+    p2Parts.rightArmGroup.rotaion.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
+    p2Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.003) * 0.05;
     
     // Atmosphere particles
     atmosphereParticles.children.forEach((p, i) => {
