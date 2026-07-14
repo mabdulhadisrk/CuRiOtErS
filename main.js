@@ -1058,6 +1058,12 @@ function animate() {
     p1Parts.torso.rotation.y = Math.sin(t*0.7)*0.02;
     p2Parts.torso.rotation.y = Math.cos(t*0.7)*0.02;
     
+    // brathing chest animation
+
+      const chestBreathe = 1 +Math.sin(t*0.5) * 0.03;
+      p1Parts.torso.scale.set(chestBreathe, 1, chestBreathe);
+      p2Parts.torso.scale.set(chestBreathe, 1, chestBreathe);
+
     
     // Atmosphere particles
     atmosphereParticles.children.forEach((p, i) => {
