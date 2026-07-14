@@ -1038,9 +1038,9 @@ function animate() {
     aura1.material.opacity = 0.3 + Math.sin(Date.now() * 0.01) * 0.2;
     aura2.material.opacity = 0.3 + Math.cos(Date.now() * 0.01) * 0.2;
     
-    // Idle breathing
-    player1.position.y = 0.1 + Math.sin(Date.now() * 0.004) * 0.03;
-    player2.position.y = 0.1 + Math.cos(Date.now() * 0.004) * 0.03;
+    // Idle breathing - smoother
+    player1.position.y = 0.1 + Math.sin(Date.now() * 0.003) * 0.05;
+    player2.position.y = 0.1 + Math.cos(Date.now() * 0.003) * 0.05;
     
     // Atmosphere particles
     atmosphereParticles.children.forEach((p, i) => {
