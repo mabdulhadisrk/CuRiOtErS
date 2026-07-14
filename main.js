@@ -1040,7 +1040,12 @@ function animate() {
     
     // Idle breathing - smoother
     player1.position.y = 0.1 + Math.sin(Date.now() * 0.003) * 0.05;
+    player1.rotation.y = Math.sin(Date.now() * 0.002) * 0.02;
     player2.position.y = 0.1 + Math.cos(Date.now() * 0.003) * 0.05;
+    player2.rotation.y = Math.cos(Date.now() * 0.002) * 0.002;
+
+    //arm away
+    p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
     
     // Atmosphere particles
     atmosphereParticles.children.forEach((p, i) => {
