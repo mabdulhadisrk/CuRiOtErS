@@ -157,57 +157,6 @@ floor.position.y = -0.08;
 floor.receiveShadow = true;
 scene.add(floor);
 
-// Glowing ring
-const ringGeo = new THREE.BoxGeometry(11, 0.05, 7);
-const ringMat = new THREE.MeshStandardMaterial({ 
-  color: 0xffd700, 
-  roughness: 0.1, 
-  metalness: 1.0, 
-  emissive: new THREE.Color(0x664400),
-  emissiveIntensity: 0.5
-});
-const ring = new THREE.Mesh(ringGeo, ringMat);
-ring.rotation.x = -Math.PI / 2;
-ring.position.y = -0.05;
-ring.receiveShadow = true;
-scene.add(ring);
-
-// Outer ring
-const outerRingGeo = new THREE.TorusGeometry(5.8, 0.15, 32, 64);
-const outerRingMat = new THREE.MeshStandardMaterial({ 
-  color: 0x4488ff, 
-  roughness: 0.1, 
-  metalness: 0.9, 
-  emissive: new THREE.Color(0x002244),
-  emissiveIntensity: 0.3
-});
-const outerRing = new THREE.Mesh(outerRingGeo, outerRingMat);
-outerRing.rotation.x = -Math.PI / 2;
-outerRing.position.y = -0.45;
-scene.add(outerRing);
-
-// Corner posts
-for (let i = 0; i < 4; i++) {
-  const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
-  const postGeo = new THREE.CylinderGeometry(0.15, 0.2, 3, 8);
-  const postMat = new THREE.MeshStandardMaterial({ 
-    color: 0xffd700, 
-    roughness: 0.2, 
-    metalness: 0.9,
-    emissive: new THREE.Color(0x331100)
-  });
-  const post = new THREE.Mesh(postGeo, postMat);
-  post.position.set(Math.cos(angle) * 4.5, 1.5, Math.sin(angle) * 4.5);
-  post.castShadow = true;
-  post.receiveShadow = true;
-  scene.add(post);
-  
-  // Post top light
-  const postLight = new THREE.PointLight(0xff4400, 0.5, 3);
-  postLight.position.set(Math.cos(angle) * 4.5, 3, Math.sin(angle) * 4.5);
-  scene.add(postLight);
-}
-
 // Particle atmosphere
 const atmosphereParticles = new THREE.Group();
 const particleGeo = new THREE.SphereGeometry(0.02, 4, 4);
