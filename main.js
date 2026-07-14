@@ -1042,12 +1042,12 @@ function animate() {
     player1.position.y = 0.1 + Math.sin(Date.now() * 0.003) * 0.05;
     player1.rotation.y = Math.sin(Date.now() * 0.002) * 0.02;
     player2.position.y = 0.1 + Math.cos(Date.now() * 0.003) * 0.05;
-    player2.rotation.y = Math.cos(Date.now() * 0.002) * 0.002;
+    player2.rotation.y = Math.cos(Date.now() * 0.002) * 0.02;
 
     //arm away
     p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
     p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.003) * 0.05;
-    p2Parts.rightArmGroup.rotaion.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
+    p2Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
     p2Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.003) * 0.05;
     
     // Atmosphere particles
