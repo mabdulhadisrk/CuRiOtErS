@@ -1067,9 +1067,9 @@ function animate() {
       // head tracking ( looking at the opponent )
 
       const p1Lookat = new THREE.Vector3().subVectors(player2.position, player1.position).normalize();
-      p1Parts.headGroup.rotation.y = Math.atan2(p1Lookat.x, p1Lookat.z)*1;
+      p1Parts.headGroup.rotation.y = Math.atan2(p1Lookat.x, p1Lookat.z)*0.6;
       const p2Lookat = new THREE.Vector3().subVectors(player1.position, player2.position).normalize();
-      p2Parts.headGroup.rotation.y = Math.atan2(p2Lookat.x, p2Lookat.z)*1;
+      p2Parts.headGroup.rotation.y = Math.atan2(p2Lookat.x, p2Lookat.z)*0.6;
 
 
       const fistClench = 1 + Math.sin(t * 3) * 0.05;
