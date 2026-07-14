@@ -1037,14 +1037,15 @@ function animate() {
     aura2.rotation.z -= 0.05;
     aura1.material.opacity = 0.3 + Math.sin(Date.now() * 0.01) * 0.2;
     aura2.material.opacity = 0.3 + Math.cos(Date.now() * 0.01) * 0.2;
-    
+    const t = Date.now() * 0.003;
     // Idle breathing - smoother
-    player1.position.y = 0.1 + Math.sin(Date.now() * 0.003) * 0.05;
-    player2.position.y = 0.1 + Math.cos(Date.now() * 0.003) * 0.05;
+    player1.position.y = 0.1 + Math.sin(t) * 0.05;
+    player2.position.y = 0.1 + Math.cos(t) * 0.05;
 
     //arm away
-    p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.002) * 0.03;
-    p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.002) * 0.03;
+    p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(t) * 0.04;
+    p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(t) * 0.04;
+    p2Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(t+1)* 0.04;
     
     
     // Atmosphere particles
