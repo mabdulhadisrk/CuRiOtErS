@@ -604,6 +604,7 @@ function createFighter(characterType, posX, name) {
   parts.leftLegGroup = leftLegGroup;
   
   group.position.set(posX, 0.1, 0);
+  group.rotation.y = posX > 0 ? -Math.PI / 2 : Math.PI / 2;
   
   // Name label
   const div = document.createElement('div');
@@ -617,7 +618,7 @@ function createFighter(characterType, posX, name) {
   div.style.borderRadius = '5px';
   div.style.border = '2px solid #ffd700';
   const label = new CSS2DObject(div);
-  label.position.set(0, 3.3, 0);
+  label.position.set(0, 4.0, 0);
   group.add(label);
   
   return { group, parts };
