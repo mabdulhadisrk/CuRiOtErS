@@ -144,7 +144,7 @@ platform.castShadow = true;
 scene.add(platform);
 
 // Arena floor with texture-like pattern
-const floorGeo = new THREE.PlaneGeometry(11,7);
+const floorGeo = new THREE.PlaneGeometry(25,14);
 const floorMat = new THREE.MeshStandardMaterial({ 
   color: 0x2a2a4e, 
   roughness: 0.2, 
@@ -1048,13 +1048,6 @@ function animate() {
     });
   }
   
-  // Screen shake
-  if (state.screenShake > 0) {
-    state.screenShake -= delta;
-    camera.position.x += (Math.random() - 0.5) * state.screenShake * 2;
-    camera.position.y += (Math.random() - 0.5) * state.screenShake * 2;
-  }
-  
   // Update particles
   for (let i = particles.length - 1; i >= 0; i--) {
     const p = particles[i];
@@ -1087,11 +1080,8 @@ function animate() {
   }
   
   // Dynamic camera
-  const midX = (player1.position.x + player2.position.x) / 2;
-  const midZ = (player1.position.z + player2.position.z) / 2;
-  camera.position.x += (midX * 0.3 - camera.position.x) * 0.03;
-  camera.position.z += (14 + midZ * 0.1 - camera.position.z) * 0.03;
-  camera.lookAt(midX, 1.5, midZ);
+  camera.position.set(0, 6, 14);
+  camera.lookAt(0, 1.5, 0);
   
   renderer.render(scene, camera);
   labelRenderer.render(scene, camera);
