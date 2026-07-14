@@ -1069,7 +1069,7 @@ function animate() {
       const p1Lookat = new THREE.Vector3().subVectors(player2.position, player1.position).normalize();
       p1Parts.headGroup.rotation.y = Math.atan2(p1LookAt.x, p1LookAt.z)*0.3;
       const p2Lookat = new THREE.Vector3().subVectors(player1.potion, player2.position).normalize();
-
+      p2Parts.headGroup.rotation.y = Math.atan2(p2Lookat.x, p2LookAt.z)*0.3;
     
     // Atmosphere particles
     atmosphereParticles.children.forEach((p, i) => {
