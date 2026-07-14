@@ -617,7 +617,7 @@ function createFighter(characterType, posX, name) {
   div.style.borderRadius = '5px';
   div.style.border = '2px solid #ffd700';
   const label = new CSS2DObject(div);
-  label.position.set(0, 2.8, 0);
+  label.position.set(0, 3.3, 0);
   group.add(label);
   
   return { group, parts };
@@ -763,16 +763,16 @@ function resetPose(parts) {
     if (parts.rightForearm) parts.rightForearm.rotation.x = 0;
   }
   if (parts.leftArmGroup) {
-    parts.leftArmGroup.rotation.z = 0.2;
-    parts.leftArmGroup.rotation.x = 0;
+    parts.leftArmGroup.rotation.z = 0.4;
+    parts.leftArmGroup.rotation.x = 0.3;
     if (parts.leftForearm) parts.leftForearm.rotation.x = 0;
   }
   if (parts.rightLegGroup) {
-    parts.rightLegGroup.rotation.x = 0;
+    parts.rightLegGroup.rotation.x = 0.2;
     if (parts.rightLowerLeg) parts.rightLowerLeg.rotation.x = 0;
   }
   if (parts.leftLegGroup) {
-    parts.leftLegGroup.rotation.x = 0;
+    parts.leftLegGroup.rotation.x = -0.3;
   }
 }
 
