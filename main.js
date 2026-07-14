@@ -1067,10 +1067,17 @@ function animate() {
       // head tracking ( looking at the opponent )
 
       const p1Lookat = new THREE.Vector3().subVectors(player2.position, player1.position).normalize();
-      p1Parts.headGroup.rotation.y = Math.atan2(p1LookAt.x, p1LookAt.z)*0.3;
-      const p2Lookat = new THREE.Vector3().subVectors(player1.potion, player2.position).normalize();
-      p2Parts.headGroup.rotation.y = Math.atan2(p2Lookat.x, p2LookAt.z)*0.3;
-    
+      p1Parts.headGroup.rotation.y = Math.atan2(p1Lookat.x, p1Lookat.z)*1;
+      const p2Lookat = new THREE.Vector3().subVectors(player1.position, player2.position).normalize();
+      p2Parts.headGroup.rotation.y = Math.atan2(p2Lookat.x, p2Lookat.z)*1;
+
+
+      const fistClench = 1 + Math.sin(t * 3) * 0.05;
+      p1Parts.rightForearm.scale.set(fistClench, fistClench, fistClench);
+      p1Parts.leftForearm.scale.set(fistClench, fistClench, fistClench);
+      p2Parts.rightForearm.scale.set(fistClench, fistClench, fistClench);
+      p2Parts.leftForearm.scale.set(fistClench, fistClench, fistClench);
+
     // Atmosphere particles
     atmosphereParticles.children.forEach((p, i) => {
       p.position.y += Math.sin(Date.now() * 0.001 + i) * 0.003;
