@@ -637,7 +637,14 @@ p1Parts.rightArmGroup.rotation.x = 0.3;
 p1Parts.leftArmGroup.rotation.z = 0.4;
 p1Parts.leftArmGroup.rotation.x = 0.3;
 p1Parts.rightLegGroup.rotation.x = 0.2;
-p1Parts.leftRight
+p1Parts.leftLegGroup.rotation.x = -0.3;
+
+p2Parts.rightArmGroup.rotation.z = -0.4;
+p2Parts.rightArmGroup.rotation.x = 0.3;
+p2Parts.leftArmGroup.rotation.z = 0.4;
+p2Parts.leftArmGroup.rotation.x = 0.3;
+p2Parts.rightLegGroup.rotation.x = 0.2;
+p2Parts.leftLegGroup.rotation.x = -0.3;
 
 
 // ---------- PROFESSIONAL EFFECTS ----------
@@ -751,8 +758,8 @@ function animateKick(parts, isRight) {
 
 function resetPose(parts) {
   if (parts.rightArmGroup) {
-    parts.rightArmGroup.rotation.z = -0.2;
-    parts.rightArmGroup.rotation.x = 0;
+    parts.rightArmGroup.rotation.z = -0.4;
+    parts.rightArmGroup.rotation.x = 0.3;
     if (parts.rightForearm) parts.rightForearm.rotation.x = 0;
   }
   if (parts.leftArmGroup) {
