@@ -1043,8 +1043,8 @@ function animate() {
     player2.position.y = 0.1 + Math.cos(Date.now() * 0.003) * 0.05;
 
     //arm away
-    p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.003) * 0.05;
-    p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.003) * 0.05;
+    p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(Date.now() * 0.002) * 0.03;
+    p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(Date.now() * 0.002) * 0.03;
     
     
     // Atmosphere particles
