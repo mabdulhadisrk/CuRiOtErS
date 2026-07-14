@@ -1046,6 +1046,9 @@ function animate() {
     p1Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(t) * 0.04;
     p1Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(t) * 0.04;
     p2Parts.rightArmGroup.rotation.z = -0.4 + Math.sin(t+1)* 0.04;
+    p2Parts.leftArmGroup.rotation.z = 0.4 + Math.cos(t+1)*0.04;
+    p1Parts.torso.rotation.y = Math.sin(t*0.7)*0.02;
+    p2Parts.torso.rotation.y = Math.cos(t*0.7)*0.02;
     
     
     // Atmosphere particles
