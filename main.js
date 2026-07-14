@@ -879,6 +879,13 @@ function movePlayers(deltaTime) {
   if (keys.d) player1.position.x += moveDelta;
   if (keys.w) player1.position.z -= moveDelta;
   if (keys.s) player1.position.z += moveDelta;
+  const p1Moving = keys.w || keys.a || keys.s || keys.d;
+p1Parts.rightLegGroup.rotation.x = p1Moving ? 0.2 + Math.sin(Date.now() * 0.015) * 0.4 : 0.2;
+p1Parts.leftLegGroup.rotation.x = p1Moving ? -0.3 + Math.cos(Date.now() * 0.015) * 0.4 : -0.3;
+
+ const p2Moving = keys.ArrowUp || keys.ArrowDown || keys.ArrowLeft || keys.ArrowRight;
+p2Parts.rightLegGroup.rotation.x = p2Moving ? 0.2 + Math.sin(Date.now() * 0.015) * 0.4 : 0.2;
+p2Parts.leftLegGroup.rotation.x = p2Moving ? -0.3 + Math.cos(Date.now() * 0.015) * 0.4 : -0.3;
   
   if (state.gameMode === 'multiplayer') {
     if (keys.ArrowLeft) player2.position.x -= moveDelta;
