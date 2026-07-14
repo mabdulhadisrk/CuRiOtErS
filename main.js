@@ -144,7 +144,7 @@ platform.castShadow = true;
 scene.add(platform);
 
 // Arena floor with texture-like pattern
-const floorGeo = new THREE.CylinderGeometry(5.3, 5.3, 0.05, 64);
+const floorGeo = new THREE.BoxGeometry(12, 0.05, 8);
 const floorMat = new THREE.MeshStandardMaterial({ 
   color: 0x2a2a4e, 
   roughness: 0.2, 
@@ -157,7 +157,7 @@ floor.receiveShadow = true;
 scene.add(floor);
 
 // Glowing ring
-const ringGeo = new THREE.TorusGeometry(5.2, 0.25, 32, 64);
+const ringGeo = new THREE.BoxGeometry(11, 0.05, 7);
 const ringMat = new THREE.MeshStandardMaterial({ 
   color: 0xffd700, 
   roughness: 0.1, 
