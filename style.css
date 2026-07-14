@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  background: #000;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Mode Selection */
+.mode-selection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a2e 0%, #1a1a3e 50%, #0a0a1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  gap: 20px;
+}
+
+.mode-title {
+  font-size: 80px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 40px #ff0000, 0 0 80px #ff00aa;
+  letter-spacing: 8px;
+  animation: titleGlow 2s infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 0 0 40px #ff8c00, 0 0 80px #ff4500; }
+  50% { text-shadow: 0 0 60px #ffd700, 0 0 100px #ff6347; }
+}
+
+.mode-subtitle {
+  font-size: 30px;
+  color: #aaa;
+  letter-spacing: 6px;
+  margin-bottom: 30px;
+}
+
+.mode-btn {
+  background: linear-gradient(180deg, #1a1a3e 0%, #0d0d2b 100%);
+  border: 3px solid #ffd700;
+  color: #ffd700;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 20px 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 4px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  width: 400px;
+  text-align: center;
+}
+
+.mode-btn:hover {
+  background: linear-gradient(180deg, #b0b0ab 0%, #ff8c00 100%);
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #1e00ff;
+}
+
+/* Controls Bar */
+.controls-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  z-index: 20;
+  border-bottom: 2px solid #ffd700;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.player-name {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 0 0 10px #ff8c00;
+}
+
+.control-keys {
+  color: #fff;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* UI Container */
+#ui-container {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.health-bar-wrapper {
+  position: absolute;
+  top: 25px;
+  width: 380px;
+  height: 35px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 3px solid #ffd700;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+#p1-health-wrapper {
+  left: 40px;
+}
+
+#p2-health-wrapper {
+  right: 40px;
+}
+
+.health-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #340317, #2a021d);
+  transition: width 0.3s ease-out;
+  box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+#p2-health-fill {
+  background: linear-gradient(90deg, #061506, #090e04);
+}
+
+.health-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px black;
+  z-index: 2;
+}
+
+.timer {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 45px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 20px #cc00ff, 0 0 40px #ff00ff;
+  letter-spacing: 4px;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 5px 35px;
+  border-radius: 15px;
+  border: 3px solid #2f286f;
+}
+
+/* KO Container - Centered */
+.ko-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+.ko-text {
+  font-size: 160px;
+  font-weight: 900;
+  color: #0088ff;
+  text-shadow: 
+    0 0 30px #0066ff, 
+    0 0 60px #0044cc, 
+    0 0 90px #002288,
+    0 0 120px #001144,
+    0 0 150px #000833;
+  letter-spacing: 25px;
+  animation: koPulse 0.7s infinite;
+}
+
+@keyframes koPulse {
+  0% { transform: scale(0.85); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.85); opacity: 0.8; }
+}
+
+.ko-winner {
+  font-size: 45px;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ff8c00, 0 0 40px #ff4500;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.rematch-panel {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.rematch-btn {
+  background: linear-gradient(180deg, #1a1a4e 0%, #0d0d2b 100%);
+  border: 3px solid #ffd700;
+  color: #00f662;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 15px 35px;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 3px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.rematch-btn:hover {
+  background: linear-gradient(180deg, #ffd700 0%, #ff8c00 100%);
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ffd700;
+}

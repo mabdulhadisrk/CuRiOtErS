@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>CuRiOtErS The Fighters</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="modeSelection" class="mode-selection">
+    <div class="mode-title">CuRiOtErS</div>
+    <div class="mode-subtitle">Select the Game Mod</div>
+    <button class="mode-btn" id="vsBotBtn">Vs BOT</button>
+    <button class="mode-btn" id="multiplayerBtn">Multiplayer</button>
+  </div>
+
+  <div id="controlsBar" class="controls-bar" style="display: none;">
+    <div class="player-controls">
+      <span class="player-name">P1 - Athena</span>
+      <span class="control-keys">W and S: Move Vertically | A and D: Move Horizontally | F: Punch | G: Kick</span>
+    </div>
+    <div class="player-controls">
+      <span class="player-name">P2 - Yoga</span>
+      <span class="control-keys">Arrows: Move | , : Punch | . : Kick</span>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+  
+  <div id="ui-container">
+    <div id="p1-health-wrapper" class="health-bar-wrapper">
+      <div id="p1-health-fill" class="health-fill"></div>
+      <span class="health-text" id="p1-health-text">100%</span>
+    </div>
+    <div id="p2-health-wrapper" class="health-bar-wrapper">
+      <div id="p2-health-fill" class="health-fill"></div>
+      <span class="health-text" id="p2-health-text">100%</span>
+    </div>
+    <div class="timer" id="timerDisplay">60</div>
+    
+    <div class="ko-container" id="koContainer">
+      <div class="ko-text">K.O.</div>
+      <div class="ko-winner" id="koWinner"></div>
+      <div class="rematch-panel" id="rematchPanel">
+        <button class="rematch-btn" id="rematchYes">Play Again</button>
+        <button class="rematch-btn" id="mainMenuBtn">Return to Main Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
