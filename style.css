@@ -23,7 +23,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0a0a2e 0%, #1a1a3e 50%, #0a0a1a 100%);
+  background: url(https://t3.ftcdn.net/jpg/08/61/51/02/360_F_861510294_6Je3kKMSC7wNfW0JIZf0OyYQcGCzB8y9.jpg);
+  background-position:cover;
+  background-repeat:no-repeat;
+  background-size:cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,7 +133,7 @@ body {
   width: 380px;
   height: 35px;
   background: rgba(0, 0, 0, 0.9);
-  border: 3px solid #ffd700;
+  border: 3px solid #fcf8f8;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
@@ -147,13 +150,13 @@ body {
 .health-fill {
   height: 100%;
   width: 100%;
-  background: linear-gradient(90deg, #340317, #2a021d);
+  background:#001144;
   transition: width 0.3s ease-out;
-  box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.5);
+  box-shadow: inset 0 0 20px rgb(16, 43, 75);
 }
 
 #p2-health-fill {
-  background: linear-gradient(90deg, #061506, #090e04);
+  background:#0044cc;
 }
 
 .health-text {
@@ -187,14 +190,15 @@ body {
 /* KO Container - Centered */
 .ko-container {
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform:translateY(190px);
   display: none;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   z-index: 50;
+  width:100%;
+  height:100%;
   pointer-events: auto;
 }
 
@@ -219,6 +223,8 @@ body {
 }
 
 .ko-winner {
+  position:absolute;
+  margin-top:10px;
   font-size: 30px;
   font-weight: 900;
   color: #ffd700;
@@ -228,6 +234,7 @@ body {
 }
 
 .rematch-panel {
+  flex-wrap: wrap;
   display: flex;
   gap: 25px;
   margin-top: 20px;
